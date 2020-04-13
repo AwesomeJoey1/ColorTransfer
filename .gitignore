@@ -1,0 +1,16 @@
+# CLion
+.idea/
+
+# CMake
+cmake-build-*/
+Build/
+
+# Media
+Images/
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
