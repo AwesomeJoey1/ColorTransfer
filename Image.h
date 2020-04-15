@@ -29,14 +29,22 @@ public:
         delete imgData;
     }
 
+    void pixelColor(const int x, const int y, int& r, int& g, int& b) const
+    {
+        int idx = y*_width*_inChannels + x *_inChannels;
+        r = _imageData[idx];
+        g = _imageData[++idx];
+        b = _imageData[++idx];
+    }
+
     void write(const std::string& path, int outChannels= 0)
     {
         stbi_write_jpg(path.c_str(), _width, _height, outChannels == 0 ? _inChannels : outChannels, &_imageData[0], 100);
     }
 
-    int width() { return _width; }
-    int height() { return _height; }
-    int channels() { return _inChannels; }
+    int width() const { return _width; }
+    int height() const { return _height; }
+    int channels() const { return _inChannels; }
 
 private:
     int _width, _height, _inChannels;
