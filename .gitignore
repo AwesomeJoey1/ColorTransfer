@@ -6,7 +6,10 @@ cmake-build-*/
 Build/
 
 # Media
-Images/
+*.jpg
+
+# Include media for readme file
+!/media/*
 
 # File-based project format
 *.iws

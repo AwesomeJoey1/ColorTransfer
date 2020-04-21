@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <sstream>
 #include <algorithm>
 
 #include <glm/glm.hpp>
@@ -38,7 +36,6 @@ void calcLAlphaBetaImg(const Image& img, std::vector<float>& lAlphaBetaImg)
         lAlphaBetaImg.push_back(lALphaBetaColor.r);
         lAlphaBetaImg.push_back(lALphaBetaColor.g);
         lAlphaBetaImg.push_back(lALphaBetaColor.b);
-
     }
 }
 
@@ -52,6 +49,7 @@ void calcAxisMeans(const std::vector<float>& imgData, glm::vec3& means)
         sum.y += imgData[++idx];
         sum.z += imgData[++idx];
     }
+
     means = sum / static_cast<float>(numValues);
 }
 
@@ -81,7 +79,7 @@ void transfer(std::vector<float>& lAlphaBetaData, const glm::vec3& srcMeans, con
     }
 }
 
-void calcRGB(const std::vector<float>& lAlphaBetaData, Image& destImg)
+void calcRGBImg(const std::vector<float>& lAlphaBetaData, Image& destImg)
 {
     glm::mat3 M_lab2lms = glm::transpose(glm::mat3(1,1,1,
                                     1,1, -1,
@@ -115,47 +113,32 @@ void transferColor(const Image& sourceImg, const Image& transferImg, Image& dest
 
     const auto [minS, maxS] = std::minmax_element(srcLAlphaBeta.begin(), srcLAlphaBeta.end());
     const auto [minT, maxT] = std::minmax_element(transLAlphaBeta.begin(), transLAlphaBeta.end());
-    std::cout << "min src: " << *minS << " max src: " << *maxS << std::endl;
-    std::cout << "min trans: " << *minT << " max trans: " << *maxT << std::endl;
 
     glm::vec3 srcMeans, srcStds, transMeans, transStds;
     calcAxisMeans(srcLAlphaBeta, srcMeans);
     calcAxisMeans(transLAlphaBeta, transMeans);
-    std::cout << "SRC means " << srcMeans.x << " " << srcMeans.y << " " << srcMeans.z << std::endl;
-    std::cout << "TRANS means " << transMeans.x << " " << transMeans.y << " " << transMeans.z << std::endl;
 
     calcAxisStds(srcLAlphaBeta, srcMeans, srcStds);
     calcAxisStds(transLAlphaBeta, transMeans, transStds);
-    std::cout << "SRC stds " << srcStds.x << " " << srcStds.y << " " << srcStds.z << std::endl;
-    std::cout << "TRANS stds " << transStds.x << " " << transStds.y << " " << transStds.z << std::endl;
 
     transfer(srcLAlphaBeta, srcMeans, srcStds, transMeans, transStds);
 
-    calcRGB(srcLAlphaBeta, destinationImg);
+    calcRGBImg(srcLAlphaBeta, destinationImg);
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-    glm::vec3 a(-0.1, 0.5, 1.0004);
-    glm::clamp(a, 0.0f, 1.0f);
-    Image srcImg("../Images/mountain_lake.jpg");
-    Image transferImg("../Images/ocean1.jpg");
-    Image dstImg(800, 600, 3);
+    if (argc != 4) {
+        std::cerr << "ERROR: Wrong number of given parameters! Call ./ColorTransfer <srcImg> <transferImg> <destination>\n";
+        return -1;
+    }
+    Image srcImg(argv[1]);
+    Image transferImg(argv[2]);
+    Image dstImg(srcImg.width(), srcImg.height(), 3);
 
     transferColor(srcImg, transferImg, dstImg);
 
-    /*std::vector<unsigned char> srcData;
-    srcImg.pixelData(srcData);
-    for (int idx = 0; idx < srcData.size(); idx+=3)
-    {
-        glm::vec3 lAlphaBetaColor(srcData[idx], srcData[idx+1], srcData[idx+2]);
-        lAlphaBetaColor /= 255.0f;
-        dstImg.setPixel(idx, static_cast<unsigned char>(255.0f*lAlphaBetaColor.r),
-                         static_cast<unsigned char>(255.0f*lAlphaBetaColor.g),
-                         static_cast<unsigned char>(255.0f*lAlphaBetaColor.b));
-    }*/
-
-    dstImg.write("../Images/ocean_processed.jpg");
+    dstImg.write(argv[3]);
 
     return 0;
 }
