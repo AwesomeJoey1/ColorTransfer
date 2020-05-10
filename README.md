@@ -33,7 +33,7 @@ S. Premoze and M. Ashikhmin, “Rendering Natural
 Waters,” Proc. Pacific Graphics, IEEE CS Press, Los Alami-
 tos, Calif., 2000, pp. 23-30
 
-NOOAA Photo Library: [Sunset](https://photolib.noaa.gov/Collections/National-Weather-Service/Other/emodule/627/eitem/19163)
+NOAA Photo Library: [Sunset](https://photolib.noaa.gov/Collections/National-Weather-Service/Other/emodule/627/eitem/19163)
 
 Pxfuel: [NorwayHouses](https://www.pxfuel.com/en/free-photo-elszt)
 
