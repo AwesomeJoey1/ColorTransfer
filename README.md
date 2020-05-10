@@ -19,6 +19,13 @@ Here are some examples of color transfers.
   <img src="media/processed1.jpg" width=288px>
 </p>
 
+
+<p>
+  <img src="media/original2.jpg" width=288px>
+  <img src="media/transfer2.jpg" width=288px>
+  <img src="media/processed2.jpg" width=288px>
+</p>
+
 ## Credits
 Images taken from
 
@@ -26,11 +33,12 @@ S. Premoze and M. Ashikhmin, “Rendering Natural
 Waters,” Proc. Pacific Graphics, IEEE CS Press, Los Alami-
 tos, Calif., 2000, pp. 23-30
 
-[NOOAA Photo Library](https://photolib.noaa.gov/Collections/National-Weather-Service/Other/emodule/627/eitem/19163)
+NOOAA Photo Library: [Sunset](https://photolib.noaa.gov/Collections/National-Weather-Service/Other/emodule/627/eitem/19163)
 
 Pxfuel: [NorwayHouses](https://www.pxfuel.com/en/free-photo-elszt)
 
 Pikrepo: [Car](https://www.pikrepo.com/fjwol/red-and-blue-racing-car-scale-model)
 
+Wallpapersite: [Mountains](https://wallpapersite.com/nature/mountains-vesturhorn-batman-mountain-iceland-reflections-4k-14543.html)
 
-
+Wallpaperscraft: [Bright Sunset](https://wallpaperscraft.com/download/silhouette_dawn_sea_120613/3840x2400)
