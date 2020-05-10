@@ -5,13 +5,18 @@ without correlations between the axes. Standard deviation and mean (of source an
 in this space.
 Converting the data points back to RGB space gives the final color transfered image.
 
-
 ## Samples
 Here are some examples of color transfers.
 <p>
   <img src="media/ocean1.jpg" width=288px>
   <img src="media/sunset.jpg" width=288px>
   <img src="media/ocean_processed.jpg" width=288px>
+</p>
+
+<p>
+  <img src="media/original1.jpg" width=288px>
+  <img src="media/transfer1.jpg" width=288px>
+  <img src="media/processed1.jpg" width=288px>
 </p>
 
 ## Credits
@@ -22,4 +27,10 @@ Waters,” Proc. Pacific Graphics, IEEE CS Press, Los Alami-
 tos, Calif., 2000, pp. 23-30
 
 [NOOAA Photo Library](https://photolib.noaa.gov/Collections/National-Weather-Service/Other/emodule/627/eitem/19163)
+
+Pxfuel: [NorwayHouses](https://www.pxfuel.com/en/free-photo-elszt)
+
+Pikrepo: [Car](https://www.pikrepo.com/fjwol/red-and-blue-racing-car-scale-model)
+
+
 
